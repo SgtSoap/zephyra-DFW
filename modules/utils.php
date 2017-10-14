@@ -3,21 +3,34 @@
 	DFW Delta Framework @  zephyra
 	@Authors:
 	Aldo Cesar Gutierrez [zerozelta]
-	Mauricio Daniel Tiscareño Uribarrien
-	Eric Luis Vega Silva
-	José Salvador Batres Romo
+	Mauricio Daniel Tiscareño Uribarrien [SgtSoap]
+	Eric Luis Vega Silva [iRiotPro]
+	José Salvador Batres Romo [Batresrock]
 	
 	Licencia: GPL puede distribuir, utilizar y modificar el codigo abiertamente
 	
 	Modulo de utilidades
 	Fecha de creacion: 20/07/2016
-	Ultima fecha de modificacion: 10/02/2016
+	Ultima fecha de modificacion: 14/10/2017
 	*/
 	
-	if (!defined('DFD8334D3Y')){
-		exit();
+	class DFW_utils{
+		/**
+		* Devuelve un color en formato Hexadecimal aleatoriamente.
+		* @return devuelve un color en Hexadecimal.
+		*/
+		function randomFlatColor(){
+			$r=mt_rand(50,100);
+			$g=mt_rand(50,100);
+			$b=mt_rand(50,100);
+			$color="#";
+			$color.=str_pad(dechex($r),2,"0",STR_PAD_LEFT);
+			$color.=str_pad(dechex($g),2,"0",STR_PAD_LEFT);
+			$color.=str_pad(dechex($b),2,"0",STR_PAD_LEFT);
+			return $color;
+		}
+		
 	}
-	
 	/*
 		Convierte un formato dd/mm/aaaa a un formato de dia en unix
 	*/
@@ -27,17 +40,6 @@
 		return $date->getTimestamp();
 	}
 		
-	function DFW_UTILS_RANDOM_FLAT_COLOR(){
-		$r=mt_rand(50,100);
-		$g=mt_rand(50,100);
-		$b=mt_rand(50,100);
-		$color="#";
-		$color.=str_pad(dechex($r),2,"0",STR_PAD_LEFT);
-		$color.=str_pad(dechex($g),2,"0",STR_PAD_LEFT);
-		$color.=str_pad(dechex($b),2,"0",STR_PAD_LEFT);
-		return $color;
-	}
-	
 	/*
 		importa las librerias basicas de DFW Lib (bootstrap y jquery) dentro del documento HTML
 	*/
